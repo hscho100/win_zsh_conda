@@ -1,13 +1,11 @@
 export PYTHONIOENCODING=UTF-8
 export CONDA_EXE='/c/Users/hscho/anaconda3/Scripts/conda.exe'
-#"/c/Users/hscho/anaconda3/Scripts/conda.exe"
-#'/c/Users/hscho/anaconda3/Scripts/conda.exe' C:/Users/hscho/anaconda3/Scripts/
-export HOMEPATH='/c/Users/hscho'
-#'/c/Users/hscho'
-#'C:\Users\hscho\anaconda3\Scripts\conda.exe'
 export _CE_M=''
 export _CE_CONDA=''
 export CONDA_PYTHON_EXE='/c/Users/hscho/anaconda3/python.exe'
+# CONDA_PREFIX="/c/Users/hscho/anaconda3/envs/${CONDA_DEFAULT_ENV}"
+# CONDA_PREFIX=$(echo ${CONDA_PREFIX} | tr -d '\r')
+# export CONDA_PREFIX
 #'/c/Users/hscho/anaconda3/python.exe'
 #'C:\Users\hscho\anaconda3\python.exe' C:/Users/hscho/anaconda3/
 
@@ -34,21 +32,28 @@ __add_sys_prefix_to_path() {
     else
         PATH="${SYSP}/bin:${PATH}"
         PATH=$(echo ${PATH} | tr -d '\r')
+        #\eval $(echo ${PATH} | cut -d':' -f1 | export CONDA_PREFIX)
     fi
     \export PATH
-    CONDA_PREFIX_3='/c'
-    CONDA_PREFIX_3=$(echo ${CONDA_PREFIX_3} | tr -d '\r')
-    CONDA_PREFIX_2='/c'
-    CONDA_PREFIX_2=$(echo ${CONDA_PREFIX_2} | tr -d '\r')
-    CONDA_PREFIX='/c/Users/hscho/anaconda3'
-    CONDA_PREFIX=$(echo ${CONDA_PREFIX} | tr -d '\r')
-    \export CONDA_PREFIX_3
-    \export CONDA_PREFIX_2
-    \export CONDA_PREFIX
+    #\eval "$(export CONDA_PREFIX)"
+    #CONDA_PREFIX=$(\dirname "${CONDA_PREFIX}")
+        #$(echo ${CONDA_PREFIX} | tr '\\' '/' | read CONDA_PREFIX)
+    #CONDA_PREFIX=$(echo ${CONDA_PREFIX} | tr '\\' '/')
+    #\export CONDA_PREFIX
+
+    # CONDA_PREFIX='/c/Users/hscho/anaconda3'
+    # CONDA_PREFIX=$(echo ${CONDA_PREFIX} | tr -d '\r')
+    # \export CONDA_PREFIX_3
+    # \export CONDA_PREFIX_2
+    # \export CONDA_PREFIX
 }
 
 __conda_exe() (
     __add_sys_prefix_to_path
+    #\echo "$(echo ${PATH} | cut -d':' -f1)"
+    #\export CONDA_PREFIX=$(echo ${PATH} | cut -d':' -f1)
+    #CONDA_PREFIX="$(echo ${PATH} | cut -d':' -f1)"
+    #export CONDA_PREFIX="$(echo ${PATH} | cut -d':' -f1)"
     $(echo "$CONDA_EXE" | tr -d '\r') $_CE_M $_CE_CONDA $(echo "$@" | tr -d '\r')
 )
 
@@ -71,15 +76,15 @@ __conda_activate() {
         \unset CONDA_PS1_BACKUP
     fi
     \local ask_conda
-    ask_conda="$(PS1="${PS1:-}" __conda_exe shell.posix "$@")" || \return
-    ask_conda=$(echo ${ask_conda:gs/\\/\/} | tr -d '\r')#$(echo ${ask_conda} | tr -d '\r')
+    ask_conda="$(PS1="${PS1:-}" __conda_exe shell.zsh "$@")"# || \return
+    ask_conda=$(echo ${ask_conda:gs/\\/\/} | tr -d '\r') || \return #$(echo ${ask_conda} | tr -d '\r') ##
     \eval "$ask_conda"
     __conda_hashr
 }
 
 __conda_reactivate() {
     \local ask_conda
-    ask_conda="$(PS1="${PS1:-}" __conda_exe shell.posix reactivate)" || \return
+    ask_conda="$(PS1="${PS1:-}" __conda_exe shell.zsh reactivate)" || \return
     ask_conda=$(echo ${ask_conda} | tr -d '\r')
     \eval "$ask_conda"
     __conda_hashr
