@@ -140,7 +140,7 @@
           "foreground": "#4b4b4b",
           "leading_diamond": "\ue0b2",
           "properties": {
-            "time_format": "Jan _2/ 15:04:05"
+            "time_format": "Jan _2; 15:04:05"
           },
           "style": "diamond",
           "template": "⏰ {{ .CurrentDate | date .Format }} ",
