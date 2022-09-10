@@ -1,0 +1,134 @@
+{
+  "remote.SSH.remotePlatform": {
+    "116.120.59.69": "linux",
+    "116.120.59.68": "linux",
+    "ncia-ain1.math.snu.ac.kr": "linux",
+    "ncia-ain5.math.snu.ac.kr": "linux",
+    "ncia-ain7.math.snu.ac.kr": "linux",
+    "ncia-ain6.math.snu.ac.kr": "linux",
+    "147.46.27.77": "linux",
+    "ain8": "linux",
+    "ain4": "linux",
+    "ncia02": "linux",
+    "ncia01": "linux",
+    "ems4": "linux",
+    "ain9": "linux"
+  },
+  "files.autoSave": "afterDelay",
+  "workbench.iconTheme": "material-icon-theme",
+  "trunk.trunkGrayOutNonBlockingIssues": false,
+  "terminal.integrated.inheritEnv": false,
+  "notebook.cellToolbarLocation": {
+    "default": "right",
+    "jupyter-notebook": "left"
+  },
+  "workbench.colorTheme": "One Dark Pro Darker",
+  "jupyter.interactiveWindowMode": "perFile",
+  "workbench.editorAssociations": {
+    "*.tex": "default"
+  },
+  "latex-workshop.view.pdf.viewer": "tab",
+  "latex-workshop.latex.external.build.args": [
+    "-shell-escape",
+    "-pdf"
+  ],
+  "latex-workshop.view.autoFocus.enabled": true,
+  "latex-workshop.latex.recipes": [
+
+
+    {
+      "name": "latexmk 🔃",
+      "tools": [
+        "latexmk"
+      ]
+    },
+    {
+      "name": "latexmk (lualatex)",
+      "tools": [
+        "lualatexmk"
+      ]
+    },
+    {
+      "name": "latexmk (latexmkrc)",
+      "tools": [
+        "latexmk_rconly"
+      ]
+    },
+    {
+      "name": "latexmk (xelatex)",
+      "tools": [
+        "xelatexmk"
+      ]
+    },
+    {
+      "name": "pdflatex ➞ bibtex ➞ pdflatex × 2",
+      "tools": [
+        "pdflatex",
+        "bibtex",
+        "pdflatex",
+        "pdflatex"
+      ]
+    },
+    {
+      "name": "Compile Rnw files",
+      "tools": [
+        "rnw2tex",
+        "latexmk"
+      ]
+    },
+    {
+      "name": "Compile Jnw files",
+      "tools": [
+        "jnw2tex",
+        "latexmk"
+      ]
+    },
+    {
+      "name": "tectonic",
+      "tools": [
+        "tectonic"
+      ]
+    }
+  ],
+  "redhat.telemetry.enabled": false,
+  "vsintellicode.features.python.deepLearning": "enabled",
+  "vsintellicode.java.completionsEnabled": false,
+  "terminal.integrated.fontSize": 16,
+  "notebook.output.textLineLimit": 100,
+  "editor.fontFamily": "\"Sarasa Mono K\", Consolas, 'Courier New', monospace",
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
+  "terminal.integrated.fontFamily": "\"Iosevka Term\"",
+  "workbench.colorCustomizations": {
+    "terminal.background" : "#151718"
+  },
+  "terminalThemes.style": "Non (remove all terminal styling)",
+  "latex-workshop.view.pdf.color.dark.backgroundColor": "#000000",
+  "prettier.tabWidth": 4,
+"editor.detectIndentation": false,
+"terminal.integrated.profiles.windows": {
+    "PowerShell": {
+        "path": [
+            "C:\\Program Files\\PowerShell\\7\\pwsh.exe"
+        ],
+        "args": [
+            "-ExecutionPolicy"
+            , "ByPass"
+            , "-NoExit"
+            , "-Command"
+            , "& 'C:\\Users\\hscho\\anaconda3\\shell\\condabin\\conda-hook.ps1' ; conda activate 'C:\\Users\\hscho\\anaconda3'"
+        ],
+        "icon": "terminal-powershell"
+    },
+    "Command Prompt": {
+        "path": [
+            "${env:windir}\\Sysnative\\cmd.exe",
+            "${env:windir}\\System32\\cmd.exe"
+        ],
+        "args": [],
+        "icon": "terminal-cmd"
+    },
+    "Git Bash": {
+        "source": "Git Bash"
+    }
+},
+}
